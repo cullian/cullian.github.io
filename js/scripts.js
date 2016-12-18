@@ -111,6 +111,14 @@ function start_game(){
     }
 }
 
+
+/**
+ * reStarts game
+ */
+function restart_game(){
+    location.reload();
+}
+
 /**
  * called when player clicks on square.
  */
@@ -149,9 +157,9 @@ function move(cell){
     if (check_tie()) return;
 
     // hide human prompt
-    $("#human").fadeOut("slow", function(){
+    $("#human").fadeOut("fast", function(){
         // show ai prompt
-        $("#ai").fadeIn("slow", function(){
+        $("#ai").fadeIn("fast", function(){
             // call AI
             AI_move();
         });
@@ -194,9 +202,9 @@ function AI_move()
     symbol = current_player == -1 ? "X" : "O";
 
     // hide ai prompt
-    $("#ai").fadeOut("slow", function(){
+    $("#ai").fadeOut("fast", function(){
         // show human prompt
-        $("#human").fadeIn("slow", function(){
+        $("#human").fadeIn("fast", function(){
             // back to wait for human
             return;
         });
@@ -332,9 +340,10 @@ function check_tie()
         // end game
         game_on = false;
         // hide human/ai prompt
-        $((current_player == 1 ? "#ai" : "#human")).fadeOut("slow", function(){
+        $((current_player == 1 ? "#ai" : "#human")).fadeOut("fast", function(){
             // show draw
-            $("#draw").fadeIn("slow", function(){
+            $("#draw").fadeIn("fast", function(){
+                $("#restart").fadeIn("fast");
             });
         });
         return true;
@@ -351,9 +360,10 @@ function handle_winner()
     game_on = false;
 
     // hide human/ai prompt
-    $(current_player == 1 ? "#ai" : "#human").fadeOut("slow", function(){
+    $(current_player == 1 ? "#ai" : "#human").fadeOut("fast", function(){
         // show won/lost
-        $(current_player == 1 ? "#lost" : "#won").fadeIn("slow");
+        $(current_player == 1 ? "#lost" : "#won").fadeIn("fast");
+        $("#restart").fadeIn("fast");
     });
 
 }
