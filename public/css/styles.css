@@ -1,0 +1,102 @@
+/**
+ * styles.css
+ *
+ * Computer Science 50
+ * Final Project
+ * William Cullian
+ *
+ * Global CSS.
+ */
+ 
+.main-container {
+    height: 100%;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: "Arial Narrow";
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom:10px;
+    color: lightgreen;
+}
+ 
+.board {
+    height: 420px;
+    width: 420px;
+    margin: 0 auto;
+    border: none;
+}
+
+.cell {
+    width: 140px;
+    height: 140px;
+    border: 2px solid lightgreen;
+    box-sizing: border-box;
+    cursor:pointer;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 70px;
+}
+
+.control {
+    font-family: "Arial Narrow";
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top:20px;
+}
+
+.grid_size {
+    font-family: "Arial Narrow";
+    font-size: 30px;
+    font-weight: bold;
+    margin-top:5px;
+    color: lightgreen;
+}
+
+#grid_drop_down {
+    font-family: "Arial Narrow";
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    margin-top:5px;
+    color: lightgreen;
+}
+
+.start {
+    margin-top: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: lightgreen;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 50px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    cursor:pointer;
+    opacity:0.5;
+}
+
+.start:hover {
+    opacity:1;
+}
+
+.ingame {
+    display:none;
+    color:lightgreen;
+}
+
+.ingame > p {
+    margin:0px;
+}
+
+.loader {
+    opacity:0.5;
+}
