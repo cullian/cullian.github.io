@@ -24,8 +24,9 @@ var total_moves = 0;
 var best_row = -1000;
 var best_col = -1000;
 
-var current_player = -1; // X goes first
-var symbol = current_player == -1 ? "X" : "O";
+// X goes first
+var current_player = -1; 
+var symbol = "X";
 
 // array to hold representation of board
 var board = [];
@@ -56,8 +57,7 @@ function draw_grid()
             id: "sq" + i,
             onmouseover: "cell_hover($(this))",
             onmouseout: "cell_nohover($(this))",
-            onclick: "move($(this))",
-            value: "0"
+            onclick: "move($(this))"
         }).text("");
         
         // add div to DOM
@@ -124,7 +124,6 @@ function move(cell){
     // if cell is occupied
     if(cell.hasClass("occupied")) return;
     
-    console.log("1");
     // put symbol in cell
     cell.html(symbol);
     cell.css({
@@ -133,7 +132,6 @@ function move(cell){
     });
     cell.addClass("occupied");
     
-    console.log("2");
     // update board
     var cell_num = cell.attr("id").substring(2);
     cell_num.parseInt;
@@ -142,21 +140,18 @@ function move(cell){
     board[row][col] = current_player;
     total_moves++;
     
-    console.log("3");
     // check for winner
     if (check_winner(board) != 0){
-    console.log("winner");
         handle_winner();
         return;
     }
     // check for a tie
     if (check_tie()) return;
-    console.log("end player turn");
-    
+
     // hide human prompt
-    $("#human").fadeOut("fast", function(){
+    $("#human").fadeOut("slow", function(){
         // show ai prompt
-        $("#ai").fadeIn("fast", function(){
+        $("#ai").fadeIn("slow", function(){
             // call AI
             AI_move();
         });
@@ -168,15 +163,16 @@ function move(cell){
  */
 function AI_move()
 {
+    // switch player
     current_player *= -1;
     symbol = current_player == -1 ? "X" : "O";
 
-    console.log("4");
-    var score = miniMax(board, current_player, true, 0);
+    // call miniMax function to find best move
+    miniMax(board, current_player, true, 0);
     board[best_row][best_col] = current_player;
+    // put symbol in cell
     var sq = (best_row * grid_size) + best_col;
     var cell = $("#sq" + sq);
-    // put symbol in cell
     cell.html(symbol);
     cell.css({
         color : symbol == "X" ? "green" : "red",
@@ -187,28 +183,31 @@ function AI_move()
 
     // check for winner
     if (check_winner(board) != 0){
-    console.log("ai winner");
         handle_winner();
         return;
     }
     // check for a tie
     if (check_tie()) return;
     
-    console.log("end ai turn");
+    // switch player
     current_player *= -1;
     symbol = current_player == -1 ? "X" : "O";
 
     // hide ai prompt
-    $("#ai").fadeOut();
-    // show human prompt
-    $("#human").fadeIn();
+    $("#ai").fadeOut("slow", function(){
+        // show human prompt
+        $("#human").fadeIn("slow", function(){
+            // back to wait for human
+            return;
+        });
+    });
 }
 
 /**
  * miniMax function for AI decision.
  */
 function miniMax(hb, player, mymove, depth) {
-    var i, j, scr;
+    var i, j, score;
     
     // if we have gone too deep, return;
     if (depth > MAX_DEPTH)
@@ -223,48 +222,49 @@ function miniMax(hb, player, mymove, depth) {
 
     var move_row = -1;
     var move_col = -1;
+    //Losing moves are preferred to no move
     if (mymove)
-        scr = -2; //Losing moves are preferred to no move
+        score = -2; 
     else
-        scr = 2;
+        score = 2;
         
     // For all possible locations (moves),
     for(i = 0; i < grid_size; i++)
     {
-        for(j = 0; j < grid_size; j++)    
-        {
-        if(hb[i][j] == 0) 
-            {
-                // If this is a legal move,
-                hb[i][j] = player; //Try the move
-                var thisScore = miniMax(hb, -1*player, !mymove, depth+1);
+        for(j = 0; j < grid_size; j++) {
+            // If this is a legal move,
+            if(hb[i][j] == 0) {
+                // Try the move
+                hb[i][j] = player; 
+                var thisScore = miniMax(hb, -1 * player, !mymove, depth + 1);
 
-                if (mymove)
-                {  
+                if (mymove) {  
                     // my move, so maximize the score          
-                    if(thisScore > scr) {
-                        scr = thisScore;
+                    if(thisScore > score) {
+                        score = thisScore;
                         move_row = i;
                         move_col = j;
                     }
                 }
-                else
-                {
+                else {
                     // not my move, so minimize the score
-                    if(thisScore < scr) {
-                        scr = thisScore;
+                    if(thisScore < score) {
+                        score = thisScore;
                         move_row = i;
                         move_col = j;
                     }
                 }
-                hb[i][j] = 0;//Reset board after try
+                // Reset board after try
+                hb[i][j] = 0;
             }
         }
     }
-    if(move_row == -1) return 0;  // no valid moves, so it is a tie.
+    // no valid moves, so it is a tie.
+    if(move_row == -1) return 0;  
+    // save best move
     best_row = move_row;
     best_col = move_col;
-    return scr;
+    return score;
 }
 
 
@@ -329,12 +329,14 @@ function check_tie()
 {
     // check tie
     if (total_moves == grid_size * grid_size){
-        // hide human/ai prompt
-        $((current_player == 1 ? "#ai" : "#human")).fadeOut();
-        // show draw
-        $("#draw").fadeIn();
         // end game
         game_on = false;
+        // hide human/ai prompt
+        $((current_player == 1 ? "#ai" : "#human")).fadeOut("slow", function(){
+            // show draw
+            $("#draw").fadeIn("slow", function(){
+            });
+        });
         return true;
     }
     return false;
@@ -349,11 +351,11 @@ function handle_winner()
     game_on = false;
 
     // hide human/ai prompt
-    $(current_player == 1 ? "#ai" : "#human").fadeOut();
+    $(current_player == 1 ? "#ai" : "#human").fadeOut("slow", function(){
+        // show won/lost
+        $(current_player == 1 ? "#lost" : "#won").fadeIn("slow");
+    });
 
-    // show won/lost
-    $(current_player == 1 ? "#lost" : "#won").fadeIn();
-console.log("here in winner: ", current_player);
 }
 
 /**
@@ -361,11 +363,8 @@ console.log("here in winner: ", current_player);
  */
 function cell_hover(cell)
 {
-    if (!game_on) {
-        return;
-    }
-    if (cell.hasClass("occupied"))
-        return;
+    if (!game_on) return;
+    if (cell.hasClass("occupied")) return;
     cell.text(symbol);
     cell.css({
         color : symbol == "X" ? "green" : "red",
@@ -374,15 +373,12 @@ function cell_hover(cell)
 }
 
 /**
- * Removes symbol when mouse moves
+ * Removes ghostly symbol when mouse moves
  */
 function cell_nohover(cell)
 {
-    if (!game_on) {
-        return;
-    }
-    if (cell.hasClass("occupied"))
-        return;
+    if (!game_on) return;
+    if (cell.hasClass("occupied")) return;
     cell.html("");
     cell.css("opacity", "1.0");
 }
