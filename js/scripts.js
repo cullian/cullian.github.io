@@ -12,13 +12,14 @@ var grid = $("#grid");
     
 // Constants
 const MAX_DIM = 9;
-const MAX_DEPTH = 5;
+const MAX_DEPTH = 6;
 const MACHINE_PLAYER  = 1;
 
 // Global variables
 var grid_size = 3;
 var game_on = false;
 var total_moves = 0;
+var max_depth = 6;
 
 // machine player best move
 var best_row = -1000;
@@ -49,6 +50,10 @@ function draw_grid()
     var selectBox = document.getElementById("grid_drop_down");
     grid_size = selectBox.options[selectBox.selectedIndex].value;
 
+    if (grid_size > 3) max_depth = 4;
+    if (grid_size > 5) max_depth = 3;
+    if (grid_size > 7) max_depth = 2;
+    
     // create divs for grid
     for (var i = 0; i < grid_size * grid_size; i++) {
         // create div with event listeners
@@ -148,6 +153,27 @@ function move(cell){
     board[row][col] = current_player;
     total_moves++;
     
+    // update max_depth
+    if (grid_size > 7) {
+    if (total_moves > 16) max_depth = 3;
+    if (total_moves > 40) max_depth = 4;
+    if (total_moves > 60) max_depth = 5;
+    }
+    else if (grid_size > 6) {
+    if (total_moves > 12) max_depth = 3;
+    if (total_moves > 20) max_depth = 4;
+    if (total_moves > 30) max_depth = 5;
+    }
+    else if (grid_size > 5) {
+    if (total_moves > 7) max_depth = 4;
+    if (total_moves > 15) max_depth = 5;
+    if (total_moves > 24) max_depth = 6;
+    }
+    else if (grid_size > 3){
+        if (total_moves > 5) max_depth = 5;
+        if (total_moves > 11) max_depth = 6;
+    }
+
     // check for winner
     if (check_winner(board) != 0){
         handle_winner();
@@ -218,7 +244,7 @@ function miniMax(hb, player, mymove, depth) {
     var i, j, score;
     
     // if we have gone too deep, return;
-    if (depth > MAX_DEPTH)
+    if (depth > max_depth)
         return 0;
         
     // see if someone has won
@@ -246,8 +272,13 @@ function miniMax(hb, player, mymove, depth) {
                 hb[i][j] = player; 
                 var thisScore = miniMax(hb, -1 * player, !mymove, depth + 1);
 
+                // my move, so maximize the score          
                 if (mymove) {  
-                    // my move, so maximize the score          
+                    // randomize equal moves          
+                    if(thisScore == score && Math.floor(Math.random() * 20) == 1) {
+                        move_row = i;
+                        move_col = j;
+                    }
                     if(thisScore > score) {
                         score = thisScore;
                         move_row = i;
