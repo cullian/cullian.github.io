@@ -12,7 +12,7 @@ var grid = $("#grid");
     
 // Constants
 const MAX_DIM = 9;
-const MAX_DEPTH = 5;
+const MAX_DEPTH = 9;
 const MACHINE_PLAYER  = 1;
 
 // Global variables
