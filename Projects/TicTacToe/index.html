@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!--
+
+index.html
+
+Computer Science 50
+Final Project
+William Cullian
+A Tic-Tac-Toe AI in JS
+
+-->
+
+<html>
+    <head>
+        <title>Tic-Tac-Toe AI</title>
+
+        <!-- CSS file-->
+        <link href="css/styles.css" rel="stylesheet" type = "text/css"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
+
+    </head>
+
+    <body>
+        <div class = "main-container">
+            <div class= "title">Tic-Tac-Toe</div>
+            <!--displays the board and contains divs generated dynamically-->
+            <div class = "board" id="grid"></div>
+
+            <!--Controls-->
+            <div class = "control">
+                <!--displays the starting controls-->
+                <div class = "intial">
+                    <div class = "difficulty">
+                        <div class="form-group">
+                            <label for="grid_drop_down" class="grid_size">Grid Size&nbsp;</label>
+                            <select class="form-control" name="grid_drop_down" id="grid_drop_down" onchange="draw_grid()">
+                                <option selected value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                    		</select>
+                        </div>
+                    </div>
+                    <div class="start" onclick="start_game()"> Start </div>
+                </div>
+
+                <!--displays in-game messages and controls-->
+                <div class = "ingame" id="human">It's your turn ...</div>
+                <div class = "ingame" id="ai">
+                    <img src = "img/ajax-loader.gif" alt = "loader" id = "loader" class = "loader" />
+                    <p>I'm Thinking...</p>
+                </div>
+                <div class = "ingame" id="won">You won!</div>
+                <div class = "ingame" id="lost">You lost!</div>
+                <div class = "ingame" id="draw">It's a Draw</div>
+                <div class = "restart" id="restart" onclick="restart_game()"> Again </div>
+            </div>
+        </div>
+
+
+        <!-- http://jquery.com/ -->
+        <script src="js/jquery-1.11.3.min.js"></script>
+
+        <!-- app's own JavaScript -->
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,99 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-family: lobster;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.jumbotron {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+}
+
+.navbar-default {
+  background-color: #0b8c27;
+  border-color: #0b8c27;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-header > a:hover {
+  color: #000;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-header > a {
+  color: white;
+}
+
+.portrait {
+  display: block;
+  margin: 0 auto;
+  border-color: #0b8c27;
+  border-width: 0.3em;
+  border-style: solid;
+}
+
+.caption > p {
+  color: black;
+}
+
+.thumbnail {
+  display: block;
+}
+
+.contact-section {
+  text-align: center;
+  color: white;
+}
+
+footer {
+  width: 100%;
+  overflow: hidden;
+  margin 0 auto;
+  padding: 0;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+}
+
+footer ul {
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  display: inline-block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+footer ul li {
+  position: relative;
+  display: inline;
+}
+
+footer ul a {
+  border: none;
+  font-size: 1.6em;
+  color: white;
+}
+
+footer ul a:hover {
+  color: #0b8c27;
+}

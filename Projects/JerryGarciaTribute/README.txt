@@ -1,0 +1,3 @@
+A Pen created at CodePen.io. You can find this one at http://codepen.io/cullian/pen/EWzxgm.
+
+ Forked from [Free Code Camp](http://codepen.io/FreeCodeCamp/)'s Pen [wMQrXV](http://codepen.io/FreeCodeCamp/pen/wMQrXV/).  I never looked at your code, once I forked it it was my code, lol.  That's how I figured it out for myself.  Just this one time.  This is a tribute to the Great Jerry Garcia of The Grateful Dead. 

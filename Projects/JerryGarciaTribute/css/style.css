@@ -1,0 +1,15 @@
+body {
+  /*background-image: url("http://www.publicdomainpictures.net/pictures/130000/velka/green-red-wave-abstract-background.jpg");*/
+  background-image: url('../img/green-red-wave-abstract-background.jpg');
+  color: darkgreen;
+}
+
+.jg {
+  font-family: 'Aclonica';
+  text-align: center;
+}
+
+.jumbotron {
+  background: lightgrey;
+  margin-top: 5rem;
+}
