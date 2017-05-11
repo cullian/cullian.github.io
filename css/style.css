@@ -9,6 +9,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-image: url("../img/pexels-photo-139575.jpeg");
 }
 
 h1,
@@ -62,6 +63,15 @@ p {
 .contact-section {
   text-align: center;
   color: white;
+}
+
+.contact-section a{
+  color: white;
+  font-size: 2em;
+}
+
+.contact-section > a:hover{
+  color: #0b8c27;
 }
 
 footer {
