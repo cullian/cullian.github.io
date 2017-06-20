@@ -174,21 +174,21 @@ $(document).ready(function() {
 
       // Get the BootstrapValidator instance
       var bv = $form.data("bootstrapValidator");
-      //
-      // Use Ajax to submit form data
-      // $.ajax({
-      //   url: "https://formspree.io/cullian@msn.com",
-      //   method: "POST",
-      //   data: $form.serialize(),
-      //   dataType: "json"
-      // });
-      // $.post(
-      //   $form.attr("action"),
-      //   $form.serialize(),
-      //   function(result) {
-      //     console.log(result);
-      //   },
-      //   "json"
-      // );
+
+      Use Ajax to submit form data
+      $.ajax({
+        url: "https://formspree.io/cullian@msn.com",
+        method: "POST",
+        data: $form.serialize(),
+        dataType: "json"
+      });
+      $.post(
+        $form.attr("action"),
+        $form.serialize(),
+        function(result) {
+          console.log(result);
+        },
+        "json"
+      );
     });
 });
