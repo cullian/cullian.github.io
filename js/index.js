@@ -182,13 +182,13 @@ $(document).ready(function() {
         data: $form.serialize(),
         dataType: "json"
       });
-      $.post(
-        $form.attr("action"),
-        $form.serialize(),
-        function(result) {
-          console.log(result);
-        },
-        "json"
-      );
+      // $.post(
+      //   $form.attr("action"),
+      //   $form.serialize(),
+      //   function(result) {
+      //     console.log(result);
+      //   },
+      //   "json"
+      // );
     });
 });
