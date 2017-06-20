@@ -175,7 +175,7 @@ $(document).ready(function() {
       // Get the BootstrapValidator instance
       var bv = $form.data("bootstrapValidator");
 
-      Use Ajax to submit form data
+      // Use Ajax to submit form data
       $.ajax({
         url: "https://formspree.io/cullian@msn.com",
         method: "POST",
