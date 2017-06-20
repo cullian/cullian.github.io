@@ -74,6 +74,12 @@ p {
   color: #0b8c27;
 }
 
+/*legend{
+  color: white;
+}*/
+
+#success_message{ display: none;}
+
 footer {
   width: 100%;
   overflow: hidden;

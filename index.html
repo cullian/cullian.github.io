@@ -15,6 +15,7 @@
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -117,7 +118,7 @@
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail">
               <a href="Projects/JerryGarciaTribute/index.html" target="_blank">
-                
+
                 <img src="img/jerryGarciaTributePic.jpg" alt="Jerry Garcia Tribute Pic" title="Jerry Garcia Tribute Pic" width = "400">
                 <div class="caption">
                   <p>A Tribute Page for Jerry Garcia of the Grateful Dead.</p>
@@ -127,7 +128,8 @@
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail">
-              <a href="#" target="_blank">
+              <a href="Projects/Text_Editor/MOOCTextEditor.jar" target="_blank">
+                <!-- <a href="Projects/Text_Editor/MOOCTextEditor.jar" target="_blank"> -->
                 <img src="https://images.pexels.com/photos/211122/pexels-photo-211122.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Under Construction" title="Under Construction" width = "400" height="400">
                 <div class="caption">
                   <p>This space under construction.</p>
@@ -176,7 +178,202 @@
     <section id="contact" class="contact-section">
       <p style="padding:2.0em;"></p>
       <div class="container">
-        <h2>Contact Me</h2>
+
+
+        <form class="well form-horizontal" action="https://formspree.io/cullian@msn.com" method="post" id="contact_form">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Contact Me Today!</legend>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">First Name</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input name="first_name" placeholder="First Name" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Last Name</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input name="last_name" placeholder="Last Name" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-2 control-label">E-Mail</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Phone #</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                  <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- Text input-->
+<!--
+            <div class="form-group">
+              <label class="col-md-2 control-label">Address</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="address" placeholder="Address" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+ -->
+            <!-- Text input-->
+<!--
+            <div class="form-group">
+              <label class="col-md-2 control-label">City</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="city" placeholder="city" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+ -->
+            <!-- Select Basic -->
+<!--
+            <div class="form-group">
+              <label class="col-md-2 control-label">State</label>
+              <div class="col-md-8 selectContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                  <select name="state" class="form-control selectpicker">
+            <option value=" " >Please select your state</option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option >Arizona</option>
+            <option >Arkansas</option>
+            <option >California</option>
+            <option >Colorado</option>
+            <option >Connecticut</option>
+            <option >Delaware</option>
+            <option >District of Columbia</option>
+            <option> Florida</option>
+            <option >Georgia</option>
+            <option >Hawaii</option>
+            <option >daho</option>
+            <option >Illinois</option>
+            <option >Indiana</option>
+            <option >Iowa</option>
+            <option> Kansas</option>
+            <option >Kentucky</option>
+            <option >Louisiana</option>
+            <option>Maine</option>
+            <option >Maryland</option>
+            <option> Mass</option>
+            <option >Michigan</option>
+            <option >Minnesota</option>
+            <option>Mississippi</option>
+            <option>Missouri</option>
+            <option>Montana</option>
+            <option>Nebraska</option>
+            <option>Nevada</option>
+            <option>New Hampshire</option>
+            <option>New Jersey</option>
+            <option>New Mexico</option>
+            <option>New York</option>
+            <option>North Carolina</option>
+            <option>North Dakota</option>
+            <option>Ohio</option>
+            <option>Oklahoma</option>
+            <option>Oregon</option>
+            <option>Pennsylvania</option>
+            <option>Rhode Island</option>
+            <option>South Carolina</option>
+            <option>South Dakota</option>
+            <option>Tennessee</option>
+            <option>Texas</option>
+            <option> Uttah</option>
+            <option>Vermont</option>
+            <option>Virginia</option>
+            <option >Washington</option>
+            <option >West Virginia</option>
+            <option>Wisconsin</option>
+            <option >Wyoming</option>
+          </select>
+                </div>
+              </div>
+            </div>
+ -->
+            <!-- Text input-->
+<!--
+            <div class="form-group">
+              <label class="col-md-2 control-label">Zip Code</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="zip" placeholder="Zip Code" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+ -->
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-2 control-label">Website or domain name</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                  <input name="website" placeholder="Website or domain name" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- Text area -->
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Your Message</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                  <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting me, I will get back to you shortly.</div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-2 control-label"></label>
+              <div class="col-md-8">
+                <button type="submit" class="btn btn-warning">Send <span class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+
+        <!-- <h2>Contact Me</h2>
         <h4>This contact form does not work.  It is only here for demonstration purposes.  If you are an employer looking to contact me.  Please email me directly at</h4>
         <a href="mailto:cullian@msn.com">cullian@msn.com.</a>
         <p style="padding:1.0em;"></p>
@@ -206,7 +403,9 @@
               </div>
             </div>
           </form>
-          <p style="padding:2.0em;"></p>
+          <p style="padding:2.0em;"></p> -->
+
+
           <hr>
         </div>
       </div>
@@ -241,6 +440,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
  <script src="js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
  <!-- my js -->
  <script src="js/index.js"></script>
 
